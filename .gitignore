@@ -1,0 +1,36 @@
+# Compiled class files
+*.class
+*.o 
+bin/
+build/
+
+# Test files
+gradlew
+gradle
+*.kts
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# IDE-specific files
+.vscode/
+.idea/
+.classpath
+.project
+.settings/
+.history/
+
+# Maven artifacts
+target/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build

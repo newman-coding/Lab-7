@@ -3,7 +3,7 @@
 Use the starter code provided to complete the following Java classes and their methods. 
 **ALL** of the following methods should be **NON-DESTRUCTIVE** unless otherwise noted.
 
-## Part One: ListMethods 
+## Part One: ListMethods.java
 This class will contain a set of methods dealing with ArrayLists. 
 Please write the following methods:
 
@@ -117,7 +117,7 @@ System.out.println(values);
 [8, 7, 6, 10, 9]
 ```
 
-## Part Two: SortMethods
+## Part Two: SortMethods.java
 This class will contain a set of methods that **sort** arrays and ArrayLists.
 
 ### 1. selection(int[] array)
@@ -126,7 +126,7 @@ This class will contain a set of methods that **sort** arrays and ArrayLists.
 
 ### 3. alphabetize(ArrayList<String> words)
 
-## Part Three: SearchMethods
+## Part Three: SearchMethods.java
 This class will contain a set of methods that **search** arrays and ArrayLists
 
 ### 1. sequentialSearch(String[] array, String target)

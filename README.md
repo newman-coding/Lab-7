@@ -1,4 +1,4 @@
-# Lab-6
+# Lab-7
 
 Use the starter code provided to complete the following Java classes and their methods. 
 **ALL** of the following methods should be **NON-DESTRUCTIVE** unless otherwise noted.

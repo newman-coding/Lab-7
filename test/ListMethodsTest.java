@@ -13,16 +13,15 @@ import java.util.ArrayList;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ListMethodsTest {
-  private int[] testNil = {0, 0, 0};
-  private int[] testOne = {5};
 
   @Test
   @Order(0)
-  @DisplayName("Test intArrayToList correctness") 
-  public void testIntArrayToList(){
-    int[] t1 = {5, 2, 1, 7, 9};
-    int[] t2 = {7, 6, -5, 4, -8, 2};
-    int[] t3 = {3, 33, 333};
+  @DisplayName("Test intArrayToList correctness")
+  public void testIntArrayToList() {
+    int[] t1 = { 5, 2, 1, 7, 9 };
+    int[] t2 = { 7, 6, -5, 4, -8, 2 };
+    int[] t3 = { 3, 33, 333 };
+    int[] testOne = { 5 };
     // action
     ArrayList<Integer> test = ListMethods.arrayToList(t1);
     // assertion
@@ -47,11 +46,11 @@ public class ListMethodsTest {
 
   @Test
   @Order(1)
-  @DisplayName("Test string arrayToList correctness") 
+  @DisplayName("Test string arrayToList correctness")
   public void testStrArrayToList() {
-    String[] t1 = {"Come on", "Eileen", "Poor old", "Johnny Ray"};
-    String[] t2 = {"Well", "you can tell", "by the way", "I use", "my walk"};
-    String[] t3 = {"And if I only could", "I'd make a deal with God"};
+    String[] t1 = { "Come on", "Eileen", "Poor old", "Johnny Ray" };
+    String[] t2 = { "Well", "you can tell", "by the way", "I use", "my walk" };
+    String[] t3 = { "And if I only could", "I'd make a deal with God" };
     // action
     ArrayList<String> test = ListMethods.arrayToList(t1);
     // assertion
@@ -71,14 +70,14 @@ public class ListMethodsTest {
 
   @Test
   @Order(2)
-  @DisplayName("Test reverse correctness") 
-  public void testReverse(){
-    int[] t1 = {0, 1, 1, 2, 3, 5, 8};
-    int[] r1 = {8, 5, 3, 2, 1, 1, 0};
-    int[] t2 = {3, 6, 9, 12};
-    int[] r2 = {12, 9, 6, 3};
-    int[] t3 = {5};
-    int[] r3 = {5};
+  @DisplayName("Test reverse correctness")
+  public void testReverse() {
+    int[] t1 = { 0, 1, 1, 2, 3, 5, 8 };
+    int[] r1 = { 8, 5, 3, 2, 1, 1, 0 };
+    int[] t2 = { 3, 6, 9, 12 };
+    int[] r2 = { 12, 9, 6, 3 };
+    int[] t3 = { 5 };
+    int[] r3 = { 5 };
 
     // action
     ArrayList<Integer> list1 = ListMethods.arrayToList(t1);
@@ -98,16 +97,16 @@ public class ListMethodsTest {
     // assertion
     assertThat(check(r3, test)).isTrue();
 
-   }
+  }
 
   @Test
   @Order(3)
-  @DisplayName("Test printEvenIndex correctness") 
-  public void testPrintEvenIndex(){
-    String[] t1 = {"To be", "or not", "to be", "that is", "the question", "Whether", "tis nobler", "in the mind"};
-    String[] t2 = {"to suffer", "the slings", "and arrows", "of outrageous fortune"};
-    String[] t3 = {"Or to take arms", "against", "a sea", "of troubles"};
-    String[] t4 = {"And by opposing end them"};
+  @DisplayName("Test printEvenIndex correctness")
+  public void testPrintEvenIndex() {
+    String[] t1 = { "To be", "or not", "to be", "that is", "the question", "Whether", "tis nobler", "in the mind" };
+    String[] t2 = { "to suffer", "the slings", "and arrows", "of outrageous fortune" };
+    String[] t3 = { "Or to take arms", "against", "a sea", "of troubles" };
+    String[] t4 = { "And by opposing end them" };
     String r1 = "To be\nto be\nthe question\ntis nobler";
     String r2 = "to suffer\nand arrows";
     String r3 = "Or to take arms\na sea";
@@ -122,7 +121,7 @@ public class ListMethodsTest {
     ArrayList<String> list1 = ListMethods.arrayToList(t1);
     ListMethods.printEvenIndex(list1);
     // get print, newline agnostic
-    String result = bos.toString().replaceAll("\r\n|\r","\n");
+    String result = bos.toString().replaceAll("\r\n|\r", "\n");
     // assertion
     assertThat(result).isEqualTo(r1);
     // clear output stream
@@ -132,7 +131,7 @@ public class ListMethodsTest {
     ArrayList<String> list2 = ListMethods.arrayToList(t2);
     ListMethods.printEvenIndex(list2);
     // get print, newline agnostic
-    result = bos.toString().replaceAll("\r\n|\r","\n");
+    result = bos.toString().replaceAll("\r\n|\r", "\n");
     // assertion
     assertThat(result).isEqualTo(r2);
     // clear output stream
@@ -142,7 +141,7 @@ public class ListMethodsTest {
     ArrayList<String> list3 = ListMethods.arrayToList(t3);
     ListMethods.printEvenIndex(list3);
     // get print, newline agnostic
-    result = bos.toString().replaceAll("\r\n|\r","\n");
+    result = bos.toString().replaceAll("\r\n|\r", "\n");
     // assertion
     assertThat(result).isEqualTo(r3);
     // clear output stream
@@ -152,12 +151,12 @@ public class ListMethodsTest {
     ArrayList<String> list4 = ListMethods.arrayToList(t4);
     ListMethods.printEvenIndex(list4);
     // get print, newline agnostic
-    result = bos.toString().replaceAll("\r\n|\r","\n");
+    result = bos.toString().replaceAll("\r\n|\r", "\n");
     // assertion
     assertThat(result).isEqualTo(r4);
     // clear output stream
     bos.reset();
-    
+
     // UNDO output binding in System
     System.setOut(originalOut);
 
@@ -165,15 +164,15 @@ public class ListMethodsTest {
 
   @Test
   @Order(4)
-  @DisplayName("Test printEvenElements correctness") 
-  public void testPrintEvenElements(){
-    int[] t1 = {-1, 1, 0, 2, 4, 7, 8};
+  @DisplayName("Test printEvenElements correctness")
+  public void testPrintEvenElements() {
+    int[] t1 = { -1, 1, 0, 2, 4, 7, 8 };
     String r1 = "0\n2\n4\n8\n";
-    int[] t2 = {6, 21};
+    int[] t2 = { 6, 21 };
     String r2 = "6\n";
-    int[] t3 = {2, -2, 2};
+    int[] t3 = { 2, -2, 2 };
     String r3 = "2\n-2\n2\n";
-    int[] t4 = {1, 3, 5, 7, 9};
+    int[] t4 = { 1, 3, 5, 7, 9 };
 
     // OUTPUT BINDING
     PrintStream originalOut = System.out;
@@ -184,7 +183,7 @@ public class ListMethodsTest {
     ArrayList<Integer> list1 = ListMethods.arrayToList(t1);
     ListMethods.printEvenElements(list1);
     // get print, newline agnostic
-    String result = bos.toString().replaceAll("\r\n|\r","\n");
+    String result = bos.toString().replaceAll("\r\n|\r", "\n");
     // assertion
     assertThat(result).isEqualTo(r1);
     // clear output stream
@@ -194,7 +193,7 @@ public class ListMethodsTest {
     ArrayList<Integer> list2 = ListMethods.arrayToList(t2);
     ListMethods.printEvenElements(list2);
     // get print, newline agnostic
-    result = bos.toString().replaceAll("\r\n|\r","\n");
+    result = bos.toString().replaceAll("\r\n|\r", "\n");
     // assertion
     assertThat(result).isEqualTo(r2);
     // clear output stream
@@ -204,7 +203,7 @@ public class ListMethodsTest {
     ArrayList<Integer> list3 = ListMethods.arrayToList(t3);
     ListMethods.printEvenElements(list3);
     // get print, newline agnostic
-    result = bos.toString().replaceAll("\r\n|\r","\n");
+    result = bos.toString().replaceAll("\r\n|\r", "\n");
     // assertion
     assertThat(result).isEqualTo(r3);
     // clear output stream
@@ -219,27 +218,25 @@ public class ListMethodsTest {
     assertThat(result).isEmpty();
     // clear output stream
     bos.reset();
-    
 
     // UNDO output binding in System
     System.setOut(originalOut);
 
-   }
+  }
 
-   @Test
-   @Order(5)
-  @DisplayName("Test sumNegatives correctness") 
-   public void testSumNegatives()
-   {
-    int[] t1 = {-1, 1, 0, 2, -4, 6, -8};
+  @Test
+  @Order(5)
+  @DisplayName("Test sumNegatives correctness")
+  public void testSumNegatives() {
+    int[] t1 = { -1, 1, 0, 2, -4, 6, -8 };
     int r1 = -13;
-    int[] t2 = {6, -21};
+    int[] t2 = { 6, -21 };
     int r2 = -21;
-    int[] t3 = {-2, -2, -2};
+    int[] t3 = { -2, -2, -2 };
     int r3 = -6;
-    int[] t4 = {-1, 3, -5, -7, -9};
+    int[] t4 = { -1, 3, -5, -7, -9 };
     int r4 = -22;
-    
+
     // test 1
     ArrayList<Integer> list1 = ListMethods.arrayToList(t1);
     int test = ListMethods.sumNegatives(list1);
@@ -268,131 +265,98 @@ public class ListMethodsTest {
 
   @Test
   @Order(6)
-  @DisplayName("Test shiftRightOne correctness") 
-  public void testShiftRightOne(){
-    int[] t1 = {1, 2, 3, 4, 5};
-    int[] r1 = {5, 1, 2, 3, 4};
-    int[] t2 = {2, 4, 6, 8};
-    int[] r2 = {8, 2, 4, 6};
-    int[] t3 = {-1, 0, 1}; 
-    int[] r3 = {1, -1, 0};
-    int[] t4 = {9, 8};
-    int[] r4 = {8, 9};
+  @DisplayName("Test shiftRightOne correctness")
+  public void testShiftRightOne() {
+    int[] t1 = { 1, 2, 3, 4, 5 };
+    int[] r1 = { 5, 1, 2, 3, 4 };
+    int[] t2 = { 2, 4, 6, 8 };
+    int[] r2 = { 8, 2, 4, 6 };
+    int[] t3 = { -1, 0, 1 };
+    int[] r3 = { 1, -1, 0 };
+    int[] t4 = { 9, 8 };
+    int[] r4 = { 8, 9 };
 
     // test 1
     ArrayList<Integer> list1 = ListMethods.arrayToList(t1);
-    int test = ListMethods.sumNegatives(list1);
+    ListMethods.shiftRightOne(list1);
     // assertion
-    assertThat(test == r1).isTrue();
+    assertThat(check(r1, list1)).isTrue();
 
-    // action
-    test = NumArray.maxArray(t2);
+    // test 2
+    ArrayList<Integer> list2 = ListMethods.arrayToList(t2);
+    ListMethods.shiftRightOne(list2);
     // assertion
-    assertThat(test == 6).isTrue();
+    assertThat(check(r2, list2)).isTrue();
 
-    // action
-    test = NumArray.maxArray(t3);
+    // test 3
+    ArrayList<Integer> list3 = ListMethods.arrayToList(t3);
+    ListMethods.shiftRightOne(list3);
     // assertion
-    assertThat(test == 2).isTrue();
+    assertThat(check(r3, list3)).isTrue();
 
-    // action
-    test = NumArray.maxArray(t4);
+    // test 4
+    ArrayList<Integer> list4 = ListMethods.arrayToList(t4);
+    ListMethods.shiftRightOne(list4);
     // assertion
-    assertThat(test == 1).isTrue();
-
-    // action
-    test = NumArray.maxArray(testOne);
-    // assertion
-    assertThat(test == 5).isTrue();
-
-    // action
-    test = NumArray.maxArray(testNil);
-    // assertion
-    assertThat(test == 0).isTrue();
+    assertThat(check(r4, list4)).isTrue();
   }
-   
+
   @Test
   @Order(7)
-  @DisplayName("Test randomEntry correctness") 
-  public void testRandomEntry(){
+  @DisplayName("Test shiftLeft correctness")
+  public void testShiftLeft() {
+    int[] t1 = { 1, 2, 3, 4, 5 };
+    int[] r1 = { 4, 5, 1, 2, 3 };
+    int[] t2 = { 2, 4, 6, 8 };
+    int[] r2 = { 4, 6, 8, 2 };
+    int[] t3 = { -1, 0, 1 };
+    int[] r3 = { 1, -1, 0 };
+    int[] t4 = { 9, 8 };
+    int[] r4 = { 8, 9 };
 
-  }
-
-  @Test
-  @Order(8)
-  @DisplayName("Test subArray correctness") 
-  public void testSubArray(){
-    int[] t1 = {2, 3, 5, 7, 9};
-    int[] t2 = {0, 1, 1, 2, 3, 5, 8};
-
-    // action
-    int[] test = NumArray.subArray(t1, 0, 3);
-    int[] r1 = {2, 3, 5};
+    // test 1
+    ArrayList<Integer> list1 = ListMethods.arrayToList(t1);
+    ListMethods.shiftLeft(list1, 3);
     // assertion
-    assertThat(check(r1, test)).isTrue();
+    assertThat(check(r1, list1)).isTrue();
 
-    // action
-    test = NumArray.subArray(t2, 2, t2.length);
-    int[] r2 = {1, 2, 3, 5, 8};
+    // test 2
+    ArrayList<Integer> list2 = ListMethods.arrayToList(t2);
+    ListMethods.shiftLeft(list2, 1);
     // assertion
-    assertThat(check(r2, test)).isTrue();
+    assertThat(check(r2, list2)).isTrue();
 
-    // action
-    test = NumArray.subArray(t2, 2, 5);
-    int[] r3 = {1, 2, 3};
+    // test 3
+    ArrayList<Integer> list3 = ListMethods.arrayToList(t3);
+    ListMethods.shiftLeft(list3, 2);
     // assertion
-    assertThat(check(r3, test)).isTrue();
+    assertThat(check(r3, list3)).isTrue();
 
-    // action
-    test = NumArray.subArray(t1, 0, 1);
-    int[] r4 = {2};
+    // test 4
+    ArrayList<Integer> list4 = ListMethods.arrayToList(t4);
+    ListMethods.shiftLeft(list4, 1);
     // assertion
-    assertThat(check(r4, test)).isTrue();
-
-  }
-
-  public static boolean check(int[] expected, int[] actual) {
-    if(actual == null) {
-      System.out.format("Your \"actual\" array is null. Have you implemented the method you are testing?\n\n");
-      return false;
-    }
-    if (expected.length != actual.length) {
-      System.out.format("Array length did not match expected length:\n"
-                + "      Expected: %d\n"
-                + "      Got: %d\n",
-              expected.length, actual.length);
-      return false;
-    }
-    for (int k = 0; k < expected.length; k++) {
-      if (expected[k] != actual[k]) {
-        System.out.format("Array contents different at index %d:\n"
-                    + "    Expected: %d\n"
-                    + "    Got: %d\n",
-                    k, expected[k], actual[k]);
-        return false;
-      }
-    }
-    return true;
+    assertThat(check(r4, list4)).isTrue();
   }
 
   public static boolean check(String[] expected, ArrayList<String> actual) {
-    if(actual == null) {
+    if (actual == null) {
       System.out.format("Your \"actual\" list is null. Have you implemented the method you are testing?\n\n");
       return false;
     }
     if (expected.length != actual.size()) {
       System.out.format("List size did not match expected length:\n"
-                + "      Expected: %d\n"
-                + "      Got: %d\n",
-                expected.length, actual.size());
+          + "      Expected: %d\n"
+          + "      Got: %d\n",
+          expected.length, actual.size());
       return false;
     }
     for (int k = 0; k < expected.length; k++) {
       if (!expected[k].equals(actual.get(k))) {
         System.out.format("Array contents different at index %d:\n"
-                    + "    Expected: " + expected[k] + "\n"
-                    + "    Got: " + actual.get(k) + "\n",
-                    k);
+            + "    Expected: " + expected[k] + "\n"
+            + "    Got: " + actual.get(k) + "\n",
+            k);
         return false;
       }
     }
@@ -400,23 +364,23 @@ public class ListMethodsTest {
   }
 
   public static boolean check(int[] expected, ArrayList<Integer> actual) {
-    if(actual == null) {
+    if (actual == null) {
       System.out.format("Your \"actual\" list is null. Have you implemented the method you are testing?\n\n");
       return false;
     }
     if (expected.length != actual.size()) {
       System.out.format("List size did not match expected length:\n"
-                + "      Expected: %d\n"
-                + "      Got: %d\n",
-                expected.length, actual.size());
+          + "      Expected: %d\n"
+          + "      Got: %d\n",
+          expected.length, actual.size());
       return false;
     }
     for (int k = 0; k < expected.length; k++) {
       if (expected[k] != actual.get(k)) {
         System.out.format("Array contents different at index %d:\n"
-                    + "    Expected: %d\n"
-                    + "    Got: %d\n",
-                    k, expected[k], actual.get(k));
+            + "    Expected: %d\n"
+            + "    Got: %d\n",
+            k, expected[k], actual.get(k));
         return false;
       }
     }

@@ -133,7 +133,7 @@ This method should take an ArrayList of Strings and use either Selection or Inse
 ```java
 String z = "Zoology";
 String a = "aardvarks";
-z.compareTo(a) \\ will return a value < 0
+z.compareTo(a) // will return a value < 0
 ```
 For extra credit, your alphabetize method will show the following behavior:
 ```java

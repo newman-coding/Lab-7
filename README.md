@@ -3,7 +3,7 @@
 Use the starter code provided to complete the following Java classes and their methods. 
 **ALL** of the following methods should be **NON-DESTRUCTIVE** unless otherwise noted.
 
-## Part One: ListMethods.java
+## ListMethods.java
 This class will contain a set of methods dealing with ArrayLists. 
 Please write the following methods:
 
@@ -71,7 +71,18 @@ printEvenElements(values);
 0
 8
 ```
-### 6. int sumNegatives(ArrayList<Integer> list)
+### 6. double average(ArrayList<Double> list)
+This method should take an ArrayList of Doubles and return
+their mathematical average.
+```java
+double[] nums = {1.0, -5.5, 4.5, -2.0, 7.5, 9.5};
+ArrayList<Double> values = arrayToList(nums);
+double avg = average(values);
+
+// Should return:
+// 2.5
+```
+### 7. int sumNegatives(ArrayList<Integer> list)
 This method should take an ArrayList of Integers and return 
 the sum of all of the negative elements.
 ```java
@@ -82,6 +93,12 @@ int sum = sumNegatives(values);
 // Should return:
 // -7
 ```
+
+## 8. boolean hasDuplicates(ArrayList<String> list)
+This method should take an ArrayList of Strings and return
+True if there are any duplicate values in the list.
+
+
 ### 7. void shiftRightOne(ArrayList<Integer> list)
 This method should take an ArrayList of Integers and shift each element 
 to the right by one index.  This is a **destructive** method, and should 
@@ -115,6 +132,19 @@ System.out.println(values);
 ```
 [1, 2, 3, 4, 5, 0]
 [8, 7, 6, 10, 9]
+```
+
+### 10. void removeDuplicates(ArrayList<String> list)
+This method should take an ArrayList of Strings and remove
+all duplicate values from the list. This is a **destructive** 
+method, and should  change the values of the original list.
+```java
+String[] groceries = {"eggs", "onions", "garlic", "cheese", "peppers", "eggs", "tomatoes", "garlic"};
+ArrayList<String> list = arrayToList(groceries);
+removeDuplicates(list);
+
+// list should now contain:
+// {"eggs", "onions", "garlic", "cheese", "peppers","tomatoes"}
 ```
 
 ## Part Two: SearchMethods.java

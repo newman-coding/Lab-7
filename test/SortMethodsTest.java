@@ -55,6 +55,7 @@ public class SortMethodsTest {
         assertThat(check(rOne, testOne)).isTrue();
 
     }
+    
     @Test
     @Order(1)
     @DisplayName("Test insertion sort correctness") 
@@ -96,6 +97,53 @@ public class SortMethodsTest {
         assertThat(check(rOne, testOne)).isTrue();
 
     }
+
+    @Test
+    @Order(1)
+    @DisplayName("Test alphabetize correctness") 
+    public void testAlphabetize(){
+        String[] t1 = {"four", "score", "and", "seven", "years", "ago"};
+        String[] r1 = {"ago", "and", "four", "score", "seven", "years"};
+        String[] t2 = {"aligators", "bears", "zebras", "cats"};
+        String[] r2 = {"aligators", "bears", "cats", "zebras"};
+        String[] t3 = {"c", "b", "a"};
+        String[] r3 = {"a", "b", "c"};
+        String[] t4 = {"hello", "hello"};
+        String[] r4 =  {"hello", "hello"};
+        String[] testOne = {"goodbye"};
+        String[] rOne = {"goodbye"};
+        
+        // action
+        ArrayList<String> test = ListMethods.arrayToList(t1);
+        SortMethods.alphabetize(test);
+        // assertion
+        assertThat(check(r1, test)).isTrue();
+
+        // action
+        test = ListMethods.arrayToList(t2);
+        SortMethods.alphabetize(test);
+        // assertion
+        assertThat(check(r2, test)).isTrue();
+
+        // action
+        test = ListMethods.arrayToList(t3);
+        SortMethods.alphabetize(test);
+        // assertion
+        assertThat(check(r3, test)).isTrue();
+
+        // action
+        test = ListMethods.arrayToList(t4);
+        SortMethods.alphabetize(test);
+        // assertion
+        assertThat(check(r4, test)).isTrue();
+
+        // action
+        test = ListMethods.arrayToList(testOne);
+        SortMethods.alphabetize(test);
+        // assertion
+        assertThat(check(rOne, test)).isTrue();
+
+    }
     
     public static boolean check(int[] expected, int[] actual) {
     if(actual == null) {
@@ -121,6 +169,30 @@ public class SortMethodsTest {
     return true;
   }
 
+  public static boolean check(String[] expected, String[] actual) {
+    if(actual == null) {
+      System.out.format("Your \"actual\" array is null. Have you implemented the method you are testing?\n\n");
+      return false;
+    }
+    if (expected.length != actual.length) {
+      System.out.format("Array size did not match expected length:\n"
+                + "      Expected: %d\n"
+                + "      Got: %d\n",
+                expected.length, actual.length);
+      return false;
+    }
+    for (int k = 0; k < expected.length; k++) {
+      if (!expected[k].equals(actual[k])) {
+        System.out.format("Array contents different at index %d:\n"
+                    + "    Expected: " + expected[k] + "\n"
+                    + "    Got: " + actual[k] + "\n",
+                    k);
+        return false;
+      }
+    }
+    return true;
+  }
+
   public static boolean check(String[] expected, ArrayList<String> actual) {
     if(actual == null) {
       System.out.format("Your \"actual\" list is null. Have you implemented the method you are testing?\n\n");
@@ -135,7 +207,7 @@ public class SortMethodsTest {
     }
     for (int k = 0; k < expected.length; k++) {
       if (!expected[k].equals(actual.get(k))) {
-        System.out.format("Array contents different at index %d:\n"
+        System.out.format("List contents different at index %d:\n"
                     + "    Expected: " + expected[k] + "\n"
                     + "    Got: " + actual.get(k) + "\n",
                     k);
@@ -159,7 +231,7 @@ public class SortMethodsTest {
     }
     for (int k = 0; k < expected.length; k++) {
       if (expected[k] != actual.get(k)) {
-        System.out.format("Array contents different at index %d:\n"
+        System.out.format("List contents different at index %d:\n"
                     + "    Expected: %d\n"
                     + "    Got: %d\n",
                     k, expected[k], actual.get(k));

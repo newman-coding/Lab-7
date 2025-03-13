@@ -107,10 +107,10 @@ public class ListMethodsTest {
     String[] t2 = { "to suffer", "the slings", "and arrows", "of outrageous fortune" };
     String[] t3 = { "Or to take arms", "against", "a sea", "of troubles" };
     String[] t4 = { "And by opposing end them" };
-    String r1 = "To be\nto be\nthe question\ntis nobler";
-    String r2 = "to suffer\nand arrows";
-    String r3 = "Or to take arms\na sea";
-    String r4 = "And by opposing end them";
+    String r1 = "To be\nto be\nthe question\ntis nobler\n";
+    String r2 = "to suffer\nand arrows\n";
+    String r3 = "Or to take arms\na sea\n";
+    String r4 = "And by opposing end them\n";
 
     // OUTPUT BINDING
     PrintStream originalOut = System.out;

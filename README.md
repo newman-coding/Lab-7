@@ -117,8 +117,23 @@ System.out.println(values);
 [8, 7, 6, 10, 9]
 ```
 
-## Part Two: SortMethods.java
+## Part Two: SearchMethods.java
+This class will contain a set of methods that **search** arrays and ArrayLists
+
+### 1. sequentialSearch(String[] array, String target)
+This method should take an array of Strings and a String holding a target word. It should return the index of the target word in the array if found, or -1 if the target word was not present in the array.
+
+### 2. sequentialSearch(ArrayList<Integer> list, int target)
+This method should take an ArrayList of Integers and an int holding a target value. It should return the index of the target value in the ArrayList if found, or -1 if the target value was not present in the ArrayList.
+
+### 3. binarySearch(int[] array, int target)
+This method should take an array of ints and an int holding a target value. It should use binary search to return the index of the target value if found, or -1 if the target value was not present in the array.
+
+## Part Three: SortMethods.java
 This class will contain a set of methods that **sort** arrays and ArrayLists. Note that all methods may be destructive, and should alter the order of the original array.
+
+### 0. bubble(int[] array)
+This method should take an array of ints and sort it using the naive "bubble sort" algorithm. Bubble sort works by repeatedly comparing each pair of elements in the array and swapping them if they are not in order.
 
 ### 1. selection(int[] array)
 This method should take an array of ints and sort it using the selection sort algorithm. Selection sort repeatedly takes the smallest remaining value in the array and moves it to the end of the "sorted section" in the front of the array.
@@ -145,14 +160,3 @@ System.out.println(words);
 ```
 [aardvarks zephyr Zoology zoology]
 ```
-## Part Three: SearchMethods.java
-This class will contain a set of methods that **search** arrays and ArrayLists
-
-### 1. sequentialSearch(String[] array, String target)
-This method should take an array of Strings and a String holding a target word. It should return the index of the target word in the array if found, or -1 if the target word was not present in the array.
-
-### 2. sequentialSearch(ArrayList<Integer> list, int target)
-This method should take an ArrayList of Integers and an int holding a target value. It should return the index of the target value in the ArrayList if found, or -1 if the target value was not present in the ArrayList.
-
-### 3. binarySearch(int[] array, int target)
-This method should take an array of ints and an int holding a target value. It should use binary search to return the index of the target value if found, and the 

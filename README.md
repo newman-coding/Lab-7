@@ -3,7 +3,7 @@
 Use the starter code provided to complete the following Java classes and their methods. 
 **ALL** of the following methods should be **NON-DESTRUCTIVE** unless otherwise noted.
 
-## ListMethods.java
+## Part One: ListMethods.java
 This class will contain a set of methods dealing with ArrayLists. 
 Please write the following methods:
 
@@ -79,7 +79,7 @@ double[] nums = {1.0, -5.5, 4.5, -2.0, 7.5, 9.5};
 ArrayList<Double> values = arrayToList(nums);
 double avg = average(values);
 
-// Should return:
+// avg should be:
 // 2.5
 ```
 ### 7. int sumNegatives(ArrayList<Integer> list)
@@ -90,16 +90,32 @@ int[] nums = {1, -5, 4, -2};
 ArrayList<Integer> values = arrayToList(nums);
 int sum = sumNegatives(values);
 
-// Should return:
+// sum should be:
 // -7
 ```
 
-## 8. boolean hasDuplicates(ArrayList<String> list)
+### 8. boolean hasDuplicates(ArrayList<String> list)
 This method should take an ArrayList of Strings and return
 True if there are any duplicate values in the list.
+```java
 
+```
 
-### 7. void shiftRightOne(ArrayList<Integer> list)
+### 9. ArrayList<String> pairUp(ArrayList<String> list)
+This method should take an ArrayList of Strings and return
+a new ArrayList containing the concatenation of each consecutive
+pair of Strings with "and" in between. Odd elements should be returned
+intact.
+```java
+String[] words = {"peanut butter", "jelly", "apples", "oranges", "cookies"};
+ArrayList<String> list = arrayToList(words);
+ArrayList<String> pairs = pairUp(words);
+
+// pairs should contain:
+// {"peanut butter and jelly", "apples and oranges", "cookies"}
+```
+
+### 10. void shiftRightOne(ArrayList<Integer> list)
 This method should take an ArrayList of Integers and shift each element 
 to the right by one index.  This is a **destructive** method, and should 
 change the values of the original list.
@@ -112,7 +128,7 @@ System.out.println(values_shifted);
 // Should return:
 // [4, 0, 1, 2, 3]
 ```
-### 8. void shiftLeft(ArrayList<Integer> list, int distance)
+### 11. void shiftLeft(ArrayList<Integer> list, int distance)
 This method should take an ArrayList of integers and an int _distance_. 
 It should shift each element in the array left by _distance_ indices. 
 This is a **destructive** method, and should change the values of the original list.
@@ -134,7 +150,7 @@ System.out.println(values);
 [8, 7, 6, 10, 9]
 ```
 
-### 10. void removeDuplicates(ArrayList<String> list)
+### 12. void removeDuplicates(ArrayList<String> list)
 This method should take an ArrayList of Strings and remove
 all duplicate values from the list. This is a **destructive** 
 method, and should  change the values of the original list.

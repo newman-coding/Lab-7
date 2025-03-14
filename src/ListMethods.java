@@ -22,8 +22,20 @@ public class ListMethods {
 
     }
 
+    public static double average(ArrayList<Double> list){
+        return 0.0;
+    }
+
     public static int sumNegatives(ArrayList<Integer> list){
         return 0;
+    }
+
+    public static boolean hasDuplicates(ArrayList<String> list){
+        return false;
+    }
+
+    public static ArrayList<String> pairUp(ArrayList<String> list){
+        return null;
     }
 
     public static void shiftRightOne(ArrayList<Integer> list){
@@ -32,5 +44,9 @@ public class ListMethods {
 
     public static void shiftLeft(ArrayList<Integer> list, int distance){
         
+    }
+
+    public static void removeDuplicates(ArrayList<String> list){
+
     }
 }

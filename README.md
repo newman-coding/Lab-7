@@ -71,16 +71,24 @@ printEvenElements(values);
 0
 8
 ```
-### 6. double average(ArrayList<Double> list)
+### 6. double standardDeviation(ArrayList<Double> list)
 This method should take an ArrayList of Doubles and return
-their mathematical average.
+their mathematical standard deviation. The standard deviation
+is the square root of the variance. Variance is the sum of squared
+differences from the mean divided by the number of samples.  
 ```java
-double[] nums = {1.0, -5.5, 4.5, -2.0, 7.5, 9.5};
+double[] nums = {2.0, -4.5, 4.5, -1.0, 6, 8};
 ArrayList<Double> values = arrayToList(nums);
-double avg = average(values);
+double stddev = standardDeviation(values);
 
-// avg should be:
-// 2.5
+// stddev should be calculated as follows:
+// mean = 2.5
+// variance = ((2.0-2.5)^2 + (-4.5-2.5)^2 + (4.5-2.5)^2 + (-1.0-2.5)^2 + (6-2.5)^2 + (8-2.5)^2) / 6
+//          = ((-0.5)^2 + (-7)^2 + (2)^2 + (-3.5)^2 + (3.5)^2 + (5.5)^2)) / 6
+//          = 108 / 6
+//          = 18
+// stddev = sqrt(18)
+//        = 4.2426407
 ```
 ### 7. int sumNegatives(ArrayList<Integer> list)
 This method should take an ArrayList of Integers and return 
@@ -98,7 +106,12 @@ int sum = sumNegatives(values);
 This method should take an ArrayList of Strings and return
 True if there are any duplicate values in the list.
 ```java
+String[] groceries = {"eggs", "onions", "garlic", "cheese", "peppers", "eggs"};
+ArrayList<String> list = arrayToList(groceries);
+hasDuplicates(list);
 
+// should return:
+// true
 ```
 
 ### 9. ArrayList<String> pairUp(ArrayList<String> list)

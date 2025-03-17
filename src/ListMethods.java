@@ -22,7 +22,7 @@ public class ListMethods {
 
     }
 
-    public static double average(ArrayList<Double> list){
+    public static double standardDeviation(ArrayList<Double> list){
         return 0.0;
     }
 

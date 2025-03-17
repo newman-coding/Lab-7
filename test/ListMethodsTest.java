@@ -10,6 +10,8 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ListMethodsTest {
@@ -226,6 +228,53 @@ public class ListMethodsTest {
 
   @Test
   @Order(5)
+  @DisplayName("Test standardDeviation correctness")
+  public void testStandardDeviation() {
+    double[] t1 = {-1, -0.5, 0, 0.5, 1};
+    double r1 = Math.sqrt(0.5);
+    double[] t2 = {6, 8};
+    double r2 = 1.0;
+    double[] t3 = {-2.2, -2.2, -2.2};
+    double r3 = 0.0;
+    double[] t4 = {1, 3, 5, 7, 9};
+    double r4 = Math.sqrt(8);
+
+    // test 1
+    ArrayList<Double> list1 = new ArrayList<Double>();
+    for (double d : t1)
+      list1.add(d);
+    double test = ListMethods.standardDeviation(list1);
+    // assertion
+    assertThat(test).isWithin(1.0e-10).of(r1);
+
+    // test 2
+    ArrayList<Double> list2 = new ArrayList<Double>();
+    for (double d : t2)
+      list2.add(d);
+    test = ListMethods.standardDeviation(list2);
+    // assertion
+    assertThat(test).isWithin(1.0e-10).of(r2);
+
+    // test 2
+    ArrayList<Double> list3 = new ArrayList<Double>();
+    for (double d : t3)
+      list3.add(d);
+    test = ListMethods.standardDeviation(list3);
+    // assertion
+    assertThat(test).isWithin(1.0e-10).of(r3);
+
+    // test 2
+    ArrayList<Double> list4 = new ArrayList<Double>();
+    for (double d : t4)
+      list4.add(d);
+    test = ListMethods.standardDeviation(list4);
+    // assertion
+    assertThat(test).isWithin(1.0e-10).of(r4);
+
+  }
+
+  @Test
+  @Order(6)
   @DisplayName("Test sumNegatives correctness")
   public void testSumNegatives() {
     int[] t1 = { -1, 1, 0, 2, -4, 6, -8 };
@@ -262,9 +311,80 @@ public class ListMethodsTest {
     assertThat(test == r4).isTrue();
 
   }
+  @Test
+  @Order(7)
+  @DisplayName("Test hasDuplicates correctness")
+  public void testHasDuplicates() {
+    String[] t1 = {"eggs", "onions", "garlic", "cheese", "peppers", "eggs", "tomatoes", "garlic"};
+    String[] t2 = {"apples", "bananas", "kiwis", "plums"};
+    String[] t3 = {"eggs", "butter", "butter", "milk", "bacon"};
+    String[] t4 = {"brioche", "sourdough", "tortillas", "rye", "multigrain"};
+
+    // action
+    ArrayList<String> list = ListMethods.arrayToList(t1);
+    boolean test = ListMethods.hasDuplicates(list);
+    // assertion
+    assertThat(test).isTrue();
+
+    // action
+    list = ListMethods.arrayToList(t2);
+    test = ListMethods.hasDuplicates(list);
+    // assertion
+    assertThat(test).isFalse();
+
+    // action
+    list = ListMethods.arrayToList(t3);
+    test = ListMethods.hasDuplicates(list);
+    // assertion
+    assertThat(test).isTrue();
+
+    // action
+    list = ListMethods.arrayToList(t4);
+    test = ListMethods.hasDuplicates(list);
+    // assertion
+    assertThat(test).isFalse();
+  }
 
   @Test
-  @Order(6)
+  @Order(7)
+  @DisplayName("Test pairUp correctness")
+  public void testPairUp() {
+    String[] t1 = {"roses", "thorns", "apples", "pears", "snakes", "ladders"};
+    String[] r1 = {"roses and thorns", "apples and pears", "snakes and ladders"};
+    String[] t2 = {"one", "two", "three", "four", "five"};
+    String[] r2 = {"one and two", "three and four", "five"};
+    String[] t3 = {"ups", "downs"};
+    String[] r3 = {"ups and downs"};
+    String[] t4 = {"left", "left", "left", "left", "multigrain"};
+    String[] r4 = {"left and left", "left and left", "multigrain"};
+
+    // action
+    ArrayList<String> list = ListMethods.arrayToList(t1);
+    ArrayList<String> test = ListMethods.pairUp(list);
+    // assertion
+    assertThat(check(r1, test)).isTrue();
+
+    // action
+    list = ListMethods.arrayToList(t2);
+    test = ListMethods.pairUp(list);
+    // assertion
+    assertThat(check(r2, test)).isTrue();
+
+    // action
+    list = ListMethods.arrayToList(t3);
+    test = ListMethods.pairUp(list);
+    // assertion
+    assertThat(check(r3, test)).isTrue();
+
+    // action
+    list = ListMethods.arrayToList(t4);
+    test = ListMethods.pairUp(list);
+    // assertion
+    assertThat(check(r4, test)).isTrue();
+  }
+
+  @Test
+  @Order(8)
   @DisplayName("Test shiftRightOne correctness")
   public void testShiftRightOne() {
     int[] t1 = { 1, 2, 3, 4, 5 };
@@ -302,7 +422,7 @@ public class ListMethodsTest {
   }
 
   @Test
-  @Order(7)
+  @Order(9)
   @DisplayName("Test shiftLeft correctness")
   public void testShiftLeft() {
     int[] t1 = { 1, 2, 3, 4, 5 };
@@ -337,6 +457,44 @@ public class ListMethodsTest {
     ListMethods.shiftLeft(list4, 1);
     // assertion
     assertThat(check(r4, list4)).isTrue();
+  }
+
+  @Test
+  @Order(10)
+  @DisplayName("Test removeDuplicates correctness")
+  public void testRemoveDuplicates() {
+    String[] t1 = {"eggs", "onions", "garlic", "cheese", "peppers", "eggs", "tomatoes", "garlic"};
+    String[] r1 = {"eggs", "onions", "garlic", "cheese", "peppers", "tomatoes"};
+    String[] t2 = {"apples", "bananas", "kiwis", "plums"};
+    String[] r2 = {"apples", "bananas", "kiwis", "plums"};
+    String[] t3 = {"eggs", "butter", "butter", "milk", "bacon"};
+    String[] r3 = {"eggs", "butter", "milk", "bacon"};
+    String[] t4 = {"brioche", "sourdough", "tortillas", "rye", "sourdough", "rye", "tortillas", "multigrain"};
+    String[] r4 = {"brioche", "sourdough", "tortillas", "rye", "multigrain"};
+
+    // action
+    ArrayList<String> test = ListMethods.arrayToList(t1);
+    ListMethods.removeDuplicates(test);
+    // assertion
+    assertThat(test).containsExactlyElementsIn(r1);
+
+    // action
+    test = ListMethods.arrayToList(t2);
+    ListMethods.removeDuplicates(test);
+    // assertion
+    assertThat(test).containsExactlyElementsIn(r2);
+
+    // action
+    test = ListMethods.arrayToList(t3);
+    ListMethods.removeDuplicates(test);
+    // assertion
+    assertThat(test).containsExactlyElementsIn(r3);
+
+    // action
+    test = ListMethods.arrayToList(t4);
+    ListMethods.removeDuplicates(test);
+    // assertion
+    assertThat(test).containsExactlyElementsIn(r4);
   }
 
   public static boolean check(String[] expected, ArrayList<String> actual) {

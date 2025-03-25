@@ -10,8 +10,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ListMethodsTest {

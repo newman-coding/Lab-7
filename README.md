@@ -135,10 +135,10 @@ change the values of the original list.
 ```java
 int[] nums = {0, 1, 2, 3, 4};
 ArrayList<Integer> values = arrayToList(nums);
-ArrayList<Integer> values_shifted = shiftRightOne(values);
-System.out.println(values_shifted);
+shiftRightOne(values);
+System.out.println(values);
 
-// Should return:
+// Should print:
 // [4, 0, 1, 2, 3]
 ```
 ### 11. void shiftLeft(ArrayList<Integer> list, int distance)

@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 
 public class SortMethods {
+
+    public static void bubble(int[] array){
+
+    }
     
     public static void selection(int[] array){
 

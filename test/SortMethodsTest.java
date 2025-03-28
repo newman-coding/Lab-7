@@ -62,7 +62,7 @@ public class SortMethodsTest {
   }
 
     @Test
-    @Order(0)
+    @Order(1)
     @DisplayName("Test selection sort correctness") 
     public void testSelection(){
         int[] t1 = {5, 2, 1, 7, 9};
@@ -104,7 +104,7 @@ public class SortMethodsTest {
     }
     
     @Test
-    @Order(1)
+    @Order(2)
     @DisplayName("Test insertion sort correctness") 
     public void testInsertion(){
         int[] t1 = {5, 2, 1, 7, 9};
@@ -146,7 +146,7 @@ public class SortMethodsTest {
     }
 
     @Test
-    @Order(2)
+    @Order(3)
     @DisplayName("Test alphabetize correctness") 
     public void testAlphabetize(){
         String[] t1 = {"four", "score", "and", "seven", "years", "ago"};

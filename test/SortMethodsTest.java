@@ -20,7 +20,7 @@ public class SortMethodsTest {
     76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100};
 
   @Test
-  @Order(3)
+  @Order(0)
   @DisplayName("Test bubble sort correctness") 
   public void testBubble(){
       int[] t1 = {5, 2, 1, 7, 9};
@@ -190,6 +190,36 @@ public class SortMethodsTest {
         // assertion
         assertThat(check(rOne, test)).isTrue();
 
+        alphabetizeEC();
+    }
+    
+    private void alphabetizeEC(){
+        String[] t1 = {"Four", "score", "seven", "and", "Seven", "years", "ago"};
+        String[] r1 = {"ago", "and", "Four", "score", "Seven", "seven", "years"};
+        String[] t2 = {"aligators", "Bears", "zebras", "cats"};
+        String[] r2 = {"aligators", "Bears", "cats", "zebras"};
+        
+        int ec = 0;
+
+        // action
+        ArrayList<String> test = ListMethods.arrayToList(t2);
+        SortMethods.alphabetize(test);
+        // response
+        if(check(r2, test)){
+          ec++;
+          System.out.println("Alphabetize extra credit test 1 passed!");
+        }
+        // action
+        test = ListMethods.arrayToList(t1);
+        SortMethods.alphabetize(test);
+        // response
+        if(check(r1, test)){
+          ec++;
+          System.out.println("Alphabetize extra credit test 2 passed!");
+        }
+
+        if (ec == 2) System.out.println("Alphabetize extra credit granted!");
+        
     }
     
     public static boolean check(int[] expected, int[] actual) {

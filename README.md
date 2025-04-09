@@ -135,10 +135,10 @@ change the values of the original list.
 ```java
 int[] nums = {0, 1, 2, 3, 4};
 ArrayList<Integer> values = arrayToList(nums);
-shiftRightOne(values);
-System.out.println(values);
+ArrayList<Integer> values_shifted = shiftRightOne(values);
+System.out.println(values_shifted);
 
-// Should print:
+// Should return:
 // [4, 0, 1, 2, 3]
 ```
 ### 11. void shiftLeft(ArrayList<Integer> list, int distance)
@@ -155,7 +155,7 @@ System.out.println(values);
 int[] nums2 = {10, 9, 8, 7, 6};
 ArrayList<Integer> values2 = arrayToList(nums2);
 shiftLeft(values2, 2);
-System.out.println(values);
+System.out.println(values2);
 ```
   should print
 ```
@@ -186,7 +186,7 @@ This method should take an array of Strings and a String holding a target word. 
 This method should take an ArrayList of Integers and an int holding a target value. It should return the index of the target value in the ArrayList if found, or -1 if the target value was not present in the ArrayList.
 
 ### 3. binarySearch(int[] array, int target)
-This method should take an array of ints and an int holding a target value. It should use binary search to return the index of the target value if found, or -1 if the target value was not present in the array. You may assume that the argument array is sorted.
+This method should take an array of ints and an int holding a target value. It should use binary search to return the index of the target value if found, or -1 if the target value was not present in the array.
 
 ## Part Three: SortMethods.java
 This class will contain a set of methods that **sort** arrays and ArrayLists. Note that all methods may be destructive, and should alter the order of the original array.
@@ -203,7 +203,7 @@ This method should take an array of ints and sort it using the insertion sort al
 ### 3. alphabetize(ArrayList<String> words)
 This method should take an ArrayList of Strings and use either Selection or Insertion sort to alphabetize it.
 
-**Bonus extra credit**: Implement this method to sort uppercase words correctly, _without_ altering the case of the original words. Java will, by default, sort all uppercase letters alphabetically *before* all lowercase letters using String comparison methods.
+**Bonus extra credit**: Implement this method to sort uppercase words correctly, _without_ altering the case of the original words. Java will, by default, sort all uppercase letters as alphabetically before all lowercase letters using String comparison methods.
 ```java
 String z = "Zoology";
 String a = "aardvarks";
